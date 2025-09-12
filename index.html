@@ -309,6 +309,10 @@
             .exam-grid {
                 grid-template-columns: 1fr;
             }
+            .firebase-status {
+                position: static;
+                margin-top: 15px;
+            }
         }
 
         .btn-group {
@@ -318,6 +322,7 @@
             margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid #e9ecef;
+            flex-wrap: wrap;
         }
 
         button {
@@ -599,6 +604,71 @@
                             <input type="text" id="planoSaude" name="planoSaude" placeholder="SUS / Nome do plano">
                         </div>
                     </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="racaCor">Raça/Cor</label>
+                            <select id="racaCor" name="racaCor">
+                                <option value="">Selecione</option>
+                                <option value="branca">Branca</option>
+                                <option value="preta">Preta</option>
+                                <option value="parda">Parda</option>
+                                <option value="amarela">Amarela</option>
+                                <option value="indigena">Indígena</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="naturalidade">Naturalidade</label>
+                            <input type="text" id="naturalidade" name="naturalidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="procedencia">Procedência</label>
+                            <input type="text" id="procedencia" name="procedencia">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estadoCivil">Estado Civil</label>
+                            <select id="estadoCivil" name="estadoCivil">
+                                <option value="">Selecione</option>
+                                <option value="solteira">Solteira</option>
+                                <option value="casada">Casada</option>
+                                <option value="divorciada">Divorciada</option>
+                                <option value="viuva">Viúva</option>
+                                <option value="uniao-estavel">União Estável</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profissao">Ocupação/Profissão</label>
+                            <input type="text" id="profissao" name="profissao">
+                            <span class="field-help">Movimentos repetitivos? Como é o trabalho?</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="escolaridade">Escolaridade</label>
+                            <select id="escolaridade" name="escolaridade">
+                                <option value="">Selecione</option>
+                                <option value="analfabeta">Analfabeta</option>
+                                <option value="fundamental-incompleto">Fundamental Incompleto</option>
+                                <option value="fundamental-completo">Fundamental Completo</option>
+                                <option value="medio-incompleto">Médio Incompleto</option>
+                                <option value="medio-completo">Médio Completo</option>
+                                <option value="superior-incompleto">Superior Incompleto</option>
+                                <option value="superior-completo">Superior Completo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco">Endereço/Condição Ambiental</label>
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço completo, condições da moradia">
+                        </div>
+                        <div class="form-group">
+                            <label for="religiao">Religião/Crença</label>
+                            <input type="text" id="religiao" name="religiao">
+                        </div>
+                    </div>
                 </div>
 
                 <!-- QUEIXA PRINCIPAL -->
@@ -629,9 +699,1256 @@
                     </div>
                 </div>
 
-                <!-- Continue com o resto dos campos do formulário original... -->
-                <!-- (Mantendo toda a estrutura HTML existente) -->
+                <!-- INTERROGATÓRIO COMPLEMENTAR -->
+                <div class="section">
+                    <h2>4. Interrogatório Complementar (Revisão de Sistemas)</h2>
+                    
+                    <div class="system-review">
+                        <h4>Sintomas Gerais</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="edema" name="sintomasGerais" value="edema">
+                                <label for="edema">Edema</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="inapetencia" name="sintomasGerais" value="inapetencia">
+                                <label for="inapetencia">Inapetência</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="febre" name="sintomasGerais" value="febre">
+                                <label for="febre">Febre</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fraqueza" name="sintomasGerais" value="fraqueza">
+                                <label for="fraqueza">Fraqueza</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="perdaPeso" name="sintomasGerais" value="perdaPeso">
+                                <label for="perdaPeso">Perda de peso</label>
+                            </div>
+                        </div>
+                        <span class="field-help" data-default="Nega sintomas gerais">Se nenhum marcado: "Nega sintomas gerais"</span>
+                    </div>
 
+                    <div class="system-review">
+                        <h4>Cabeça e Pescoço</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cefaleia" name="sintomasCabeca" value="cefaleia">
+                                <label for="cefaleia">Cefaleia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tontura" name="sintomasCabeca" value="tontura">
+                                <label for="tontura">Tontura</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lipotimia" name="sintomasCabeca" value="lipotimia">
+                                <label for="lipotimia">Lipotímia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sincope" name="sintomasCabeca" value="sincope">
+                                <label for="sincope">Síncope</label>
+                            </div>
+                        </div>
+                        <textarea name="detalheCabeca" placeholder="Detalhes adicionais..." rows="2" style="margin-top: 10px;"
+                            data-default=""></textarea>
+                    </div>
+
+                    <div class="system-review">
+                        <h4>Cardiovascular</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="palpitacao" name="sintomasCardio" value="palpitacao">
+                                <label for="palpitacao">Palpitação</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dorPrecordial" name="sintomasCardio" value="dorPrecordial">
+                                <label for="dorPrecordial">Dor precordial</label>
+                            </div>
+                        </div>
+                        <textarea name="detalheCardio" placeholder="Detalhes adicionais..." rows="2" style="margin-top: 10px;"
+                            data-default=""></textarea>
+                    </div>
+
+                    <div class="system-review">
+                        <h4>Respiratório</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tosse" name="sintomasResp" value="tosse">
+                                <label for="tosse">Tosse</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dispneia" name="sintomasResp" value="dispneia">
+                                <label for="dispneia">Dispneia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ortopneia" name="sintomasResp" value="ortopneia">
+                                <label for="ortopneia">Ortopneia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dpn" name="sintomasResp" value="dpn">
+                                <label for="dpn">DPN</label>
+                            </div>
+                        </div>
+                        <textarea name="detalheResp" placeholder="Detalhes adicionais..." rows="2" style="margin-top: 10px;"
+                            data-default=""></textarea>
+                    </div>
+
+                    <div class="system-review">
+                        <h4>Gastrointestinal</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="nausea" name="sintomasGI" value="nausea">
+                                <label for="nausea">Náusea</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="vomito" name="sintomasGI" value="vomito">
+                                <label for="vomito">Vômito</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="disfagia" name="sintomasGI" value="disfagia">
+                                <label for="disfagia">Disfagia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="epigastralgia" name="sintomasGI" value="epigastralgia">
+                                <label for="epigastralgia">Epigastralgia</label>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label for="habitoIntestinal">Hábito Intestinal</label>
+                            <input type="text" id="habitoIntestinal" name="habitoIntestinal" 
+                                placeholder="Frequência/dia, consistência, cor, sangue/muco"
+                                data-default="Evacuações diárias, fezes formadas, sem sangue ou muco">
+                        </div>
+                    </div>
+
+                    <div class="system-review">
+                        <h4>Genitourinário</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="disuria" name="sintomasGU" value="disuria">
+                                <label for="disuria">Disúria</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="polaciuria" name="sintomasGU" value="polaciuria">
+                                <label for="polaciuria">Polaciúria</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="urgencia" name="sintomasGU" value="urgencia">
+                                <label for="urgencia">Urgência</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="incontinencia" name="sintomasGU" value="incontinencia">
+                                <label for="incontinencia">Incontinência</label>
+                            </div>
+                        </div>
+                        <textarea name="detalheGU" placeholder="Detalhes do hábito urinário..." rows="2" style="margin-top: 10px;"
+                            data-default="Diurese presente, sem disúria ou outras queixas urinárias"></textarea>
+                    </div>
+
+                    <div class="system-review">
+                        <h4>Mamas</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dorMama" name="sintomasMama" value="dor">
+                                <label for="dorMama">Dor</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="aumentoVolume" name="sintomasMama" value="aumento">
+                                <label for="aumentoVolume">Aumento de volume</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="secrecaoMama" name="sintomasMama" value="secrecao">
+                                <label for="secrecaoMama">Secreção</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="pruridoMama" name="sintomasMama" value="prurido">
+                                <label for="pruridoMama">Prurido</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANTECEDENTES GINECOLÓGICOS -->
+                <div class="section">
+                    <h2>5. Antecedentes Ginecológicos</h2>
+                    
+                    <div class="subsection">
+                        <h3>Antecedentes Menstruais</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="menarca">Menarca</label>
+                                <input type="number" id="menarca" name="menarca" min="8" max="20" placeholder="idade">
+                            </div>
+                            <div class="form-group">
+                                <label for="dum">DUM</label>
+                                <input type="date" id="dum" name="dum">
+                            </div>
+                            <div class="form-group">
+                                <label for="menopausa">Menopausa</label>
+                                <input type="number" id="menopausa" name="menopausa" min="30" max="70" placeholder="idade">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cicloFreq">Ciclo Menstrual</label>
+                                <input type="text" id="cicloFreq" name="cicloFreq" 
+                                    placeholder="duração/regularidade/volume"
+                                    data-default="Regular, 28/4, fluxo moderado">
+                            </div>
+                            <div class="form-group">
+                                <label for="metodoContraceptivo">Método Contraceptivo</label>
+                                <input type="text" id="metodoContraceptivo" name="metodoContraceptivo" 
+                                    placeholder="ACO, DIU, preservativo..."
+                                    data-default="Nega uso atual">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tratamentosGineco">Tratamentos ginecológicos prévios</label>
+                            <textarea id="tratamentosGineco" name="tratamentosGineco" 
+                                placeholder="Clínicos e cirúrgicos"
+                                data-default="Nega tratamentos ginecológicos prévios"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Antecedentes Sexuais</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sexarca">Sexarca</label>
+                                <input type="number" id="sexarca" name="sexarca" min="10" max="80" placeholder="idade">
+                            </div>
+                            <div class="form-group">
+                                <label for="numParceiros">Número de Parceiros</label>
+                                <input type="number" id="numParceiros" name="numParceiros" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="ists">ISTs prévias</label>
+                                <input type="text" id="ists" name="ists" 
+                                    placeholder="HIV, sífilis, HPV..."
+                                    data-default="Nega">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sintomasVulvovaginais">Sintomas vulvovaginais</label>
+                            <input type="text" id="sintomasVulvovaginais" name="sintomasVulvovaginais" 
+                                placeholder="Corrimento (quantidade, cor, odor), prurido, lesões"
+                                data-default="Nega corrimento, prurido ou lesões">
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Antecedentes Obstétricos</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gestacoes">Gestações (G)</label>
+                                <input type="number" id="gestacoes" name="gestacoes" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="partos">Partos (P)</label>
+                                <input type="number" id="partos" name="partos" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="cesareas">Cesáreas (C)</label>
+                                <input type="number" id="cesareas" name="cesareas" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="abortos">Abortos (A)</label>
+                                <input type="number" id="abortos" name="abortos" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="detalheObstetrico">Detalhes obstétricos</label>
+                            <textarea id="detalheObstetrico" name="detalheObstetrico" 
+                                placeholder="Idade gestacional, peso dos RN, complicações, indicações de cesárea..."
+                                data-default=""></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RASTREAMENTO -->
+                <div class="section">
+                    <h2>6. Rastreamento de Doenças</h2>
+                    
+                    <div id="rastreamentoIdade" class="alert-box">
+                        <strong>⚠️ Insira a idade da paciente para ver as recomendações de rastreamento específicas</strong>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rastreamento de Câncer de Colo Uterino</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ultimoPapanicolau">Último Papanicolau</label>
+                                <input type="date" id="ultimoPapanicolau" name="ultimoPapanicolau">
+                            </div>
+                            <div class="form-group">
+                                <label for="resultadoPapanicolau">Resultado</label>
+                                <input type="text" id="resultadoPapanicolau" name="resultadoPapanicolau" 
+                                    placeholder="Normal, ASC-US, LSIL, HSIL..."
+                                    data-default="Negativo para lesão intraepitelial ou malignidade">
+                            </div>
+                        </div>
+                        <div class="alert-box">
+                            <strong>📋 Recomendações MS/INCA:</strong>
+                            • <strong>25-64 anos:</strong> Papanicolau a cada 3 anos (após 2 exames anuais normais)<br>
+                            • <strong>< 25 anos:</strong> Não recomendado de rotina<br>
+                            • <strong>> 64 anos:</strong> Pode suspender se 2 últimos exames normais nos últimos 5 anos
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rastreamento de Câncer de Mama</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ultimaMamografia">Última Mamografia</label>
+                                <input type="date" id="ultimaMamografia" name="ultimaMamografia">
+                            </div>
+                            <div class="form-group">
+                                <label for="resultadoMamografia">Resultado (BI-RADS)</label>
+                                <select id="resultadoMamografia" name="resultadoMamografia">
+                                    <option value="">Selecione</option>
+                                    <option value="0">0 - Incompleto</option>
+                                    <option value="1">1 - Negativo</option>
+                                    <option value="2">2 - Achados benignos</option>
+                                    <option value="3">3 - Provavelmente benigno</option>
+                                    <option value="4">4 - Suspeito</option>
+                                    <option value="5">5 - Altamente suspeito</option>
+                                    <option value="6">6 - Malignidade confirmada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="historicoFamiliarCaMama">História familiar de Ca mama/ovário?</label>
+                            <input type="text" id="historicoFamiliarCaMama" name="historicoFamiliarCaMama" 
+                                placeholder="Especificar parentesco e idade do diagnóstico">
+                        </div>
+                        <div class="alert-box">
+                            <strong>📋 Recomendações MS:</strong>
+                            • <strong>40-49 anos:</strong> Exame clínico anual (mamografia se alteração)<br>
+                            • <strong>50-69 anos:</strong> Mamografia bienal<br>
+                            • <strong>Alto risco:</strong> Iniciar 10 anos antes da idade do familiar mais jovem afetado
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Outros Rastreamentos</h3>
+                        <table class="screening-table">
+                            <thead>
+                                <tr>
+                                    <th>Exame</th>
+                                    <th>Indicação</th>
+                                    <th>Periodicidade</th>
+                                    <th>Realizado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Densitometria óssea</td>
+                                    <td>Mulheres ≥65 anos ou pós-menopausa com fatores de risco</td>
+                                    <td>A cada 2 anos</td>
+                                    <td><input type="date" name="densitometria"></td>
+                                </tr>
+                                <tr>
+                                    <td>Colonoscopia</td>
+                                    <td>≥50 anos ou história familiar</td>
+                                    <td>A cada 10 anos se normal</td>
+                                    <td><input type="date" name="colonoscopia"></td>
+                                </tr>
+                                <tr>
+                                    <td>Glicemia jejum</td>
+                                    <td>≥45 anos ou fatores de risco</td>
+                                    <td>Anual se fatores de risco</td>
+                                    <td><input type="date" name="glicemia"></td>
+                                </tr>
+                                <tr>
+                                    <td>Perfil lipídico</td>
+                                    <td>≥45 anos ou fatores de risco</td>
+                                    <td>A cada 5 anos se normal</td>
+                                    <td><input type="date" name="lipidograma"></td>
+                                </tr>
+                                <tr>
+                                    <td>TSH</td>
+                                    <td>≥35 anos ou sintomas</td>
+                                    <td>A cada 5 anos</td>
+                                    <td><input type="date" name="tsh"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ANTECEDENTES PESSOAIS -->
+                <div class="section">
+                    <h2>7. Antecedentes Pessoais</h2>
+                    
+                    <div class="subsection">
+                        <h3>Comorbidades</h3>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dm" name="comorbidades" value="DM">
+                                <label for="dm">Diabetes Mellitus</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="has" name="comorbidades" value="HAS">
+                                <label for="has">Hipertensão</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dlp" name="comorbidades" value="DLP">
+                                <label for="dlp">Dislipidemia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="doencaMental" name="comorbidades" value="doenca-mental">
+                                <label for="doencaMental">Doenças mentais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cancer" name="comorbidades" value="cancer">
+                                <label for="cancer">Câncer</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="doencaAutoimune" name="comorbidades" value="autoimune">
+                                <label for="doencaAutoimune">Doenças autoimunes</label>
+                            </div>
+                        </div>
+                        <textarea name="detalheComorbidades" placeholder="Especifique diagnósticos, medicações em uso..." rows="2" style="margin-top: 10px;"
+                            data-default=""></textarea>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Doenças Infecciosas</h3>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hiv" name="infecciosas" value="HIV">
+                                <label for="hiv">HIV</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sifilis" name="infecciosas" value="sifilis">
+                                <label for="sifilis">Sífilis</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hepatites" name="infecciosas" value="hepatites">
+                                <label for="hepatites">Hepatites</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tuberculose" name="infecciosas" value="tuberculose">
+                                <label for="tuberculose">Tuberculose</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Hábitos e Estilo de Vida</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tabagismo">Tabagismo</label>
+                                <input type="text" id="tabagismo" name="tabagismo" 
+                                    placeholder="Não / maços-ano / ex-tabagista"
+                                    data-default="Nega">
+                            </div>
+                            <div class="form-group">
+                                <label for="etilismo">Etilismo</label>
+                                <input type="text" id="etilismo" name="etilismo" 
+                                    placeholder="Não / social / doses por semana"
+                                    data-default="Nega">
+                            </div>
+                            <div class="form-group">
+                                <label for="drogas">Uso de substâncias</label>
+                                <input type="text" id="drogas" name="drogas" 
+                                    placeholder="Nega / especificar"
+                                    data-default="Nega">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="atividadeFisica">Atividade física</label>
+                                <input type="text" id="atividadeFisica" name="atividadeFisica" 
+                                    placeholder="Sedentária / frequência e tipo"
+                                    data-default="Sedentária">
+                            </div>
+                            <div class="form-group">
+                                <label for="alimentacao">Alimentação</label>
+                                <input type="text" id="alimentacao" name="alimentacao" 
+                                    placeholder="Hábitos alimentares"
+                                    data-default="Dieta balanceada">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Outros Antecedentes</h3>
+                        <div class="form-group">
+                            <label for="alergias">Alergias</label>
+                            <input type="text" id="alergias" name="alergias" 
+                                placeholder="Medicamentosas, alimentares..."
+                                data-default="Nega alergias">
+                        </div>
+                        <div class="form-group">
+                            <label for="cirurgiasPrevias">Cirurgias prévias</label>
+                            <textarea id="cirurgiasPrevias" name="cirurgiasPrevias" 
+                                placeholder="Procedimento, ano, complicações..."
+                                data-default="Nega cirurgias prévias"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="vacinacao">Vacinação</label>
+                            <input type="text" id="vacinacao" name="vacinacao" 
+                                placeholder="Calendário atualizado? Vacinas especiais?"
+                                data-default="Calendário vacinal atualizado">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANTECEDENTES FAMILIARES -->
+                <div class="section">
+                    <h2>8. Antecedentes Familiares</h2>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="famHAS" name="antFamiliares" value="HAS">
+                            <label for="famHAS">HAS</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="famDM" name="antFamiliares" value="DM">
+                            <label for="famDM">DM</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="famCA" name="antFamiliares" value="cancer">
+                            <label for="famCA">Câncer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="famCardio" name="antFamiliares" value="cardiovascular">
+                            <label for="famCardio">D. Cardiovascular</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="famPreEclampsia" name="antFamiliares" value="pre-eclampsia">
+                            <label for="famPreEclampsia">Pré-eclâmpsia</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="consanguinidade" name="antFamiliares" value="consanguinidade">
+                            <label for="consanguinidade">Consanguinidade</label>
+                        </div>
+                    </div>
+                    <textarea name="detalheFamiliares" placeholder="Especifique: parentesco, tipo de câncer, idade do diagnóstico..." rows="3" style="margin-top: 10px;"
+                        data-default=""></textarea>
+                </div>
+
+                <!-- EXAME FÍSICO GERAL -->
+                <div class="section">
+                    <h2>9. Exame Físico</h2>
+                    
+                    <div class="subsection">
+                        <h3>Sinais Vitais</h3>
+                        <div class="vitals-grid">
+                            <div class="form-group">
+                                <label for="peso">Peso (kg)</label>
+                                <input type="number" id="peso" name="peso" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="altura">Altura (m)</label>
+                                <input type="number" id="altura" name="altura" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="imc">IMC</label>
+                                <input type="text" id="imc" name="imc" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="pa">PA (mmHg)</label>
+                                <input type="text" id="pa" name="pa" placeholder="120/80">
+                            </div>
+                            <div class="form-group">
+                                <label for="fc">FC (bpm)</label>
+                                <input type="number" id="fc" name="fc">
+                            </div>
+                            <div class="form-group">
+                                <label for="fr">FR (irpm)</label>
+                                <input type="number" id="fr" name="fr">
+                            </div>
+                            <div class="form-group">
+                                <label for="temp">Temp (°C)</label>
+                                <input type="number" id="temp" name="temp" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="sato2">SatO2 (%)</label>
+                                <input type="number" id="sato2" name="sato2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Exame Físico Geral</h3>
+                        <div class="form-group">
+                            <label for="estadoGeral">Estado Geral</label>
+                            <input type="text" id="estadoGeral" name="estadoGeral" 
+                                placeholder="BEG, corada, hidratada, anictérica, acianótica, afebril"
+                                data-default="BEG, corada, hidratada, anictérica, acianótica, afebril">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cabecaPescoco">Cabeça e Pescoço</label>
+                            <textarea id="cabecaPescoco" name="cabecaPescoco" 
+                                placeholder="Linfonodos, tireoide, mobilidade cervical..."
+                                data-default="Linfonodos não palpáveis. Tireoide sem alterações. Mobilidade cervical preservada"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="torax">Tórax/Pulmão</label>
+                            <textarea id="torax" name="torax" 
+                                placeholder="Expansibilidade simétrica, MV+ sem RA..."
+                                data-default="Expansibilidade simétrica, som claro pulmonar à percussão. MV+ bilateral sem RA"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coracao">Coração</label>
+                            <input type="text" id="coracao" name="coracao" 
+                                placeholder="BRNF em 2T sem sopros"
+                                data-default="BRNF em 2T sem sopros">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="abdomen">Abdome</label>
+                            <textarea id="abdomen" name="abdomen" 
+                                placeholder="Plano, flácido, RHA+, indolor, sem massas ou visceromegalias..."
+                                data-default="Plano, flácido, RHA+, indolor à palpação, sem massas ou visceromegalias"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="extremidades">Extremidades</label>
+                            <input type="text" id="extremidades" name="extremidades" 
+                                placeholder="Sem edemas, pulsos presentes e simétricos"
+                                data-default="Sem edemas, pulsos presentes e simétricos">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXAME GINECOLÓGICO -->
+                <div class="section">
+                    <h2>10. Exame Ginecológico</h2>
+                    
+                    <div class="subsection">
+                        <h3>Exame das Mamas</h3>
+                        <div class="exam-attention">
+                            <strong>⚠️ Pontos de Atenção:</strong>
+                            <ul>
+                                <li><strong>Inspeção:</strong> Assimetrias, retrações, "peau d'orange", hiperemia, descamação areolar</li>
+                                <li><strong>Palpação:</strong> Técnica em espiral ou radial, todos os quadrantes + prolongamento axilar</li>
+                                <li><strong>Nódulos:</strong> Localizar por quadrante/horas + distância da aréola em cm</li>
+                                <li><strong>Características:</strong> Consistência (fibroelástico, pétreo), mobilidade, aderência</li>
+                                <li><strong>Achados comuns:</strong> Fibroadenoma (móvel, bem delimitado) vs Carcinoma (fixo, irregular)</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="mamasInspecao">Inspeção (estática e dinâmica)</label>
+                            <textarea id="mamasInspecao" name="mamasInspecao" 
+                                placeholder="Simétricas, sem retrações ou abaulamentos..."
+                                data-default="Inspeção estática e dinâmica sem alterações. Mamas simétricas, sem retrações ou abaulamentos"></textarea>
+                        </div>
+                        <div class="exam-grid">
+                            <div class="form-group">
+                                <label for="mamaDireita">Mama Direita - Palpação</label>
+                                <textarea id="mamaDireita" name="mamaDireita" 
+                                    placeholder="Ex: Nódulo em QSE, 10h, 3cm da aréola, 2cm, móvel, fibroelástico..."
+                                    data-default="Sem nódulos ou massas palpáveis"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="mamaEsquerda">Mama Esquerda - Palpação</label>
+                                <textarea id="mamaEsquerda" name="mamaEsquerda" 
+                                    placeholder="Ex: Nódulo em QSE, 10h, 3cm da aréola, 2cm, móvel, fibroelástico..."
+                                    data-default="Sem nódulos ou massas palpáveis"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="expressaoMamilar">Expressão mamilar / Linfonodos</label>
+                            <textarea id="expressaoMamilar" name="expressaoMamilar" 
+                                placeholder="Descrever tipo de secreção (serosa, láctea, hemática). Linfonodos: tamanho, consistência, mobilidade..."
+                                data-default="Expressão mamilar ausente bilateralmente. Linfonodos não palpáveis nas cadeias axilares, supra e infraclaviculares"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Genitália Externa</h3>
+                        <div class="exam-attention">
+                            <strong>⚠️ Pontos de Atenção:</strong>
+                            <ul>
+                                <li><strong>Inspeção:</strong> Distribuição pilosa, trofismo, coloração</li>
+                                <li><strong>Lesões comuns:</strong> Condilomas (verrucosos), úlceras (herpes, sífilis), cistos de Bartholin</li>
+                                <li><strong>Distopias:</strong> Cistocele, retocele, prolapso uterino (graus I-IV)</li>
+                                <li><strong>Teste de esforço:</strong> Pedir para tossir (avaliar incontinência urinária)</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="vulva">Inspeção vulvar (estática e dinâmica)</label>
+                            <textarea id="vulva" name="vulva" 
+                                placeholder="Pilificação, trofismo, lesões, distopias ao esforço..."
+                                data-default="Pilificação adequada em monte pubiano e vulva. Pequenos e grandes lábios simétricos. Ausência de lesões, hiperemia ou distopias"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Exame Especular</h3>
+                        <div class="exam-attention">
+                            <strong>⚠️ Pontos de Atenção:</strong>
+                            <ul>
+                                <li><strong>Colo:</strong> Ectopia (normal em jovens), pólipos, cistos de Naboth</li>
+                                <li><strong>Lesões suspeitas:</strong> Áreas acetobrancas, vasos atípicos, lesões vegetantes</li>
+                                <li><strong>Corrimento patológico:</strong> 
+                                    - Candidíase: grumoso, branco
+                                    - Vaginose: acinzentado, odor de peixe
+                                    - Tricomoníase: esverdeado, bolhoso
+                                </li>
+                                <li><strong>pH normal:</strong> 3.8-4.5 (elevado em vaginose e tricomoníase)</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="especular">Vagina e Colo</label>
+                            <textarea id="especular" name="especular" 
+                                placeholder="Trofismo vaginal, aspecto do colo, JEC, corrimento..."
+                                data-default="Vagina trófica, rugosidades preservadas, presença de secreção fisiológica adequada. Colo epitelizado, orifício externo puntiforme, sem lesões visíveis"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phVaginal">pH vaginal</label>
+                                <input type="text" id="phVaginal" name="phVaginal" 
+                                    placeholder="3.8-4.5"
+                                    data-default="4.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="testeAminas">Teste das aminas (KOH)</label>
+                                <select id="testeAminas" name="testeAminas">
+                                    <option value="">Selecione</option>
+                                    <option value="negativo" selected>Negativo</option>
+                                    <option value="positivo">Positivo (odor de peixe = vaginose)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Toque Vaginal Bimanual</h3>
+                        <div class="exam-attention">
+                            <strong>⚠️ Pontos de Atenção:</strong>
+                            <ul>
+                                <li><strong>Colo:</strong> Amolecimento (gravidez), endurecimento (CA)</li>
+                                <li><strong>Útero:</strong> 
+                                    - Tamanho: normal 7-8cm, aumentado (miomas, gravidez)
+                                    - Posição: AVF (70%), RVF, medioversão
+                                    - Mobilidade dolorosa: DIP, endometriose
+                                </li>
+                                <li><strong>Anexos:</strong> Normalmente não palpáveis (exceto ovários em mulheres magras)</li>
+                                <li><strong>Massas anexiais:</strong> Cistos ovarianos, hidrossalpinge, gravidez ectópica</li>
+                                <li><strong>Dor à mobilização cervical:</strong> Sinal de Chandelier (DIP)</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="toqueVaginal">Achados</label>
+                            <textarea id="toqueVaginal" name="toqueVaginal" 
+                                placeholder="Colo: posição, consistência, mobilidade. Útero: posição, tamanho, forma. Anexos..."
+                                data-default="Colo fibroelástico, móvel e indolor à mobilização. Fundo de saco posterior livre. Útero em AVF, tamanho, forma e consistência normais. Anexos não palpáveis"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Colpocitologia Oncótica</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="colpoRealizada">Realizada?</label>
+                                <select id="colpoRealizada" name="colpoRealizada">
+                                    <option value="nao">Não</option>
+                                    <option value="sim">Sim</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="colpoData">Data</label>
+                                <input type="date" id="colpoData" name="colpoData">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="colpoObs">Observações</label>
+                            <textarea id="colpoObs" name="colpoObs" 
+                                placeholder="JEC visível, material adequado, sem sangramento..."
+                                data-default="JEC visível, material adequado coletado"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HIPÓTESE DIAGNÓSTICA E CONDUTA -->
+                <div class="section">
+                    <h2>11. Hipótese Diagnóstica e Conduta</h2>
+                    <div class="form-group">
+                        <label for="hipoteses">Hipóteses Diagnósticas (HDs)</label>
+                        <textarea id="hipoteses" name="hipoteses" rows="3" 
+                            placeholder="1. 
+2. 
+3."
+                            data-default="1. Consulta ginecológica de rotina"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="conduta">Condutas</label>
+                        <textarea id="conduta" name="conduta" rows="4" 
+                            placeholder="- Exames solicitados
+- Medicações prescritas
+- Orientações
+- Retorno"
+                            data-default="- Orientações sobre prevenção
+- Manter acompanhamento ginecológico anual
+- Retorno em 1 ano ou se intercorrências"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="aconselhamento">Aconselhamento e Prevenção</label>
+                        <textarea id="aconselhamento" name="aconselhamento" 
+                            placeholder="Práticas de prevenção, orientações sobre ISTs, contracepção..."
+                            data-default="Orientações sobre prevenção de ISTs, importância do rastreamento de câncer de colo uterino e mama, hábitos de vida saudáveis"></textarea>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO OBSTÉTRICA (mostrada apenas quando selecionado) -->
+                <div id="secaoObstetrica" style="display: none;">
+                    
+                    <!-- DADOS DA GESTAÇÃO ATUAL -->
+                    <div class="section">
+                        <h2>12. Gestação Atual</h2>
+                        
+                        <div class="subsection">
+                            <h3>Cálculo da Idade Gestacional</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dumObstetrica" class="required">DUM (Data da Última Menstruação)</label>
+                                    <input type="date" id="dumObstetrica" name="dumObstetrica" onchange="calcularIdadeGestacional()">
+                                </div>
+                                <div class="form-group">
+                                    <label for="igCalculada">Idade Gestacional</label>
+                                    <input type="text" id="igCalculada" name="igCalculada" readonly placeholder="Será calculada automaticamente">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dppCalculada">DPP (Data Provável do Parto)</label>
+                                    <input type="text" id="dppCalculada" name="dppCalculada" readonly placeholder="Será calculada automaticamente">
+                                </div>
+                            </div>
+                            <div class="alert-box">
+                                <strong>📅 Regra de Naegele para cálculo da DPP:</strong>
+                                Somar 7 dias à DUM e subtrair 3 meses (ou adicionar 9 meses)
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Sintomas da Gestação</h3>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="nauseasVomitos" name="sintomasGestacao" value="nauseas-vomitos">
+                                    <label for="nauseasVomitos">Náuseas e vômitos</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="pirose" name="sintomasGestacao" value="pirose">
+                                    <label for="pirose">Pirose</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sialorreia" name="sintomasGestacao" value="sialorreia">
+                                    <label for="sialorreia">Sialorreia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="fadigaGestacional" name="sintomasGestacao" value="fadiga">
+                                    <label for="fadigaGestacional">Fadiga</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="colicasGestacionais" name="sintomasGestacao" value="colicas">
+                                    <label for="colicasGestacionais">Cólicas/Flatulência</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="obstipacao" name="sintomasGestacao" value="obstipacao">
+                                    <label for="obstipacao">Obstipação intestinal</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hemorroidas" name="sintomasGestacao" value="hemorroidas">
+                                    <label for="hemorroidas">Hemorroidas</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="corrimentoGravidico" name="sintomasGestacao" value="corrimento">
+                                    <label for="corrimentoGravidico">Corrimento vaginal</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="queixasUrinarias" name="sintomasGestacao" value="queixas-urinarias">
+                                    <label for="queixasUrinarias">Queixas urinárias</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="lombalgia" name="sintomasGestacao" value="lombalgia">
+                                    <label for="lombalgia">Lombalgia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="cefaleia" name="sintomasGestacao" value="cefaleia">
+                                    <label for="cefaleia">Cefaleia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sangramento" name="sintomasGestacao" value="sangramento">
+                                    <label for="sangramento">Sangramento genital</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="varizes" name="sintomasGestacao" value="varizes">
+                                    <label for="varizes">Varizes</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="caimbras" name="sintomasGestacao" value="caimbras">
+                                    <label for="caimbras">Câimbras</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="cloasma" name="sintomasGestacao" value="cloasma">
+                                    <label for="cloasma">Cloasma gravídico</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="estrias" name="sintomasGestacao" value="estrias">
+                                    <label for="estrias">Estrias</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Movimentação Fetal</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="movimentacaoFetal">Presença de movimentação fetal</label>
+                                    <select id="movimentacaoFetal" name="movimentacaoFetal">
+                                        <option value="">Selecione</option>
+                                        <option value="ausente">Ausente</option>
+                                        <option value="presente">Presente</option>
+                                        <option value="diminuida">Diminuída</option>
+                                        <option value="aumentada">Aumentada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inicioMovimentacao">Início da percepção (semanas)</label>
+                                    <input type="number" id="inicioMovimentacao" name="inicioMovimentacao" min="16" max="25">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Vacinação na Gestação</h3>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="vacinaDT" name="vacinasGestacao" value="dt">
+                                    <label for="vacinaDT">dT (difteria e tétano)</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="vacinaInfluenza" name="vacinasGestacao" value="influenza">
+                                    <label for="vacinaInfluenza">Influenza</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="vacinaHepatiteB" name="vacinasGestacao" value="hepatite-b">
+                                    <label for="vacinaHepatiteB">Hepatite B</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="vacinaCovid" name="vacinasGestacao" value="covid">
+                                    <label for="vacinaCovid">COVID-19</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAME OBSTÉTRICO -->
+                    <div class="section">
+                        <h2>13. Exame Obstétrico</h2>
+                        
+                        <div class="subsection">
+                            <h3>Medidas Obstétricas</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="alturaUterina">Altura Uterina (cm)</label>
+                                    <input type="number" id="alturaUterina" name="alturaUterina" step="0.5" min="0" max="50">
+                                    <span class="field-help">Medida da sínfise púbica ao fundo uterino</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="circunferenciaAbdominal">Circunferência Abdominal (cm)</label>
+                                    <input type="number" id="circunferenciaAbdominal" name="circunferenciaAbdominal" min="50" max="150">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Ausculta dos Batimentos Cardíacos Fetais (BCF)</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bcfPresente">BCF</label>
+                                    <select id="bcfPresente" name="bcfPresente">
+                                        <option value="">Selecione</option>
+                                        <option value="presente">Presente</option>
+                                        <option value="ausente">Ausente</option>
+                                        <option value="nao-audivel">Não audível (IG < 12 sem)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bcfFrequencia">Frequência (bpm)</label>
+                                    <input type="number" id="bcfFrequencia" name="bcfFrequencia" min="110" max="160">
+                                    <span class="field-help">Normal: 110-160 bpm</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bcfLocalizacao">Localização</label>
+                                    <select id="bcfLocalizacao" name="bcfLocalizacao">
+                                        <option value="">Selecione</option>
+                                        <option value="qsd">QSD (Quadrante Superior Direito)</option>
+                                        <option value="qse">QSE (Quadrante Superior Esquerdo)</option>
+                                        <option value="qid">QID (Quadrante Inferior Direito)</option>
+                                        <option value="qie">QIE (Quadrante Inferior Esquerdo)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Palpação Obstétrica (Manobras de Leopold)</h3>
+                            <div class="form-group">
+                                <label for="apresentacaoFetal">Apresentação Fetal</label>
+                                <select id="apresentacaoFetal" name="apresentacaoFetal">
+                                    <option value="">Selecione</option>
+                                    <option value="cefalica">Cefálica</option>
+                                    <option value="pelvica">Pélvica</option>
+                                    <option value="cormica">Córmica (transversa)</option>
+                                    <option value="nao-determinada">Não determinada</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="situacaoFetal">Situação Fetal</label>
+                                <select id="situacaoFetal" name="situacaoFetal">
+                                    <option value="">Selecione</option>
+                                    <option value="longitudinal">Longitudinal</option>
+                                    <option value="transversa">Transversa</option>
+                                    <option value="obliqua">Oblíqua</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="posicaoFetal">Posição Fetal</label>
+                                <select id="posicaoFetal" name="posicaoFetal">
+                                    <option value="">Selecione</option>
+                                    <option value="esquerda">Dorso à esquerda</option>
+                                    <option value="direita">Dorso à direita</option>
+                                    <option value="anterior">Dorso anterior</option>
+                                    <option value="posterior">Dorso posterior</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="insinuacao">Insinuação</label>
+                                <select id="insinuacao" name="insinuacao">
+                                    <option value="">Selecione</option>
+                                    <option value="movel">Móvel</option>
+                                    <option value="fixa">Fixa</option>
+                                    <option value="insinuada">Insinuada</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Toque Vaginal (se indicado)</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dilatacaoCervical">Dilatação Cervical (cm)</label>
+                                    <input type="number" id="dilatacaoCervical" name="dilatacaoCervical" min="0" max="10" step="0.5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="apagamentoCervical">Apagamento Cervical (%)</label>
+                                    <input type="number" id="apagamentoCervical" name="apagamentoCervical" min="0" max="100" step="10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="consistenciaColo">Consistência do Colo</label>
+                                    <select id="consistenciaColo" name="consistenciaColo">
+                                        <option value="">Selecione</option>
+                                        <option value="duro">Duro</option>
+                                        <option value="medio">Médio</option>
+                                        <option value="amolecido">Amolecido</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="posicaoColo">Posição do Colo</label>
+                                    <select id="posicaoColo" name="posicaoColo">
+                                        <option value="">Selecione</option>
+                                        <option value="posterior">Posterior</option>
+                                        <option value="medianizado">Medianizado</option>
+                                        <option value="anterior">Anterior</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="alturaApresentacao">Altura da Apresentação (Planos de De Lee)</label>
+                                <select id="alturaApresentacao" name="alturaApresentacao">
+                                    <option value="">Selecione</option>
+                                    <option value="-3">-3 (Alto)</option>
+                                    <option value="-2">-2</option>
+                                    <option value="-1">-1</option>
+                                    <option value="0">0 (Plano zero)</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+2">+2</option>
+                                    <option value="+3">+3 (Baixo)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bolsaAguas">Integridade da Bolsa das Águas</label>
+                                <select id="bolsaAguas" name="bolsaAguas">
+                                    <option value="">Selecione</option>
+                                    <option value="integra">Íntegra</option>
+                                    <option value="rota">Rota</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CLASSIFICAÇÃO DE RISCO OBSTÉTRICO -->
+                    <div class="section">
+                        <h2>14. Estratificação de Risco Obstétrico</h2>
+                        
+                        <div class="subsection">
+                            <h3>Fatores de Risco</h3>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="idadeRisco" name="fatoresRisco" value="idade-risco">
+                                    <label for="idadeRisco">Idade < 15 ou > 35 anos</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="hasGestacional" name="fatoresRisco" value="has">
+                                    <label for="hasGestacional">Hipertensão arterial</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="dmGestacional" name="fatoresRisco" value="dm">
+                                    <label for="dmGestacional">Diabetes mellitus</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="cardiopatia" name="fatoresRisco" value="cardiopatia">
+                                    <label for="cardiopatia">Cardiopatia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="nefropatia" name="fatoresRisco" value="nefropatia">
+                                    <label for="nefropatia">Nefropatia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="anemia" name="fatoresRisco" value="anemia">
+                                    <label for="anemia">Anemia</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="gemelaridade" name="fatoresRisco" value="gemelar">
+                                    <label for="gemelaridade">Gestação gemelar</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="macrossomia" name="fatoresRisco" value="macrossomia">
+                                    <label for="macrossomia">Macrossomia fetal</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="rciu" name="fatoresRisco" value="rciu">
+                                    <label for="rciu">Restrição de crescimento fetal</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="oligohidramnio" name="fatoresRisco" value="oligohidramnio">
+                                    <label for="oligohidramnio">Oligohidrâmnio</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="polihidramnio" name="fatoresRisco" value="polihidramnio">
+                                    <label for="polihidramnio">Polihidrâmnio</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="ameacaPartoPrematuro" name="fatoresRisco" value="app">
+                                    <label for="ameacaPartoPrematuro">Ameaça de parto prematuro</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="classificacaoRisco">Classificação de Risco</label>
+                            <select id="classificacaoRisco" name="classificacaoRisco">
+                                <option value="">Selecione</option>
+                                <option value="habitual">Risco Habitual</option>
+                                <option value="intermediario">Risco Intermediário</option>
+                                <option value="alto">Alto Risco</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- EXAMES COMPLEMENTARES OBSTÉTRICOS -->
+                    <div class="section">
+                        <h2>15. Exames Complementares do Pré-natal</h2>
+                        
+                        <div class="subsection">
+                            <h3>Exames de Rotina</h3>
+                            <table class="screening-table">
+                                <thead>
+                                    <tr>
+                                        <th>Exame</th>
+                                        <th>1º Trimestre</th>
+                                        <th>2º Trimestre</th>
+                                        <th>3º Trimestre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hemograma</td>
+                                        <td><input type="checkbox" name="hemograma1T"></td>
+                                        <td><input type="checkbox" name="hemograma2T"></td>
+                                        <td><input type="checkbox" name="hemograma3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipo sanguíneo/Rh</td>
+                                        <td><input type="checkbox" name="tipoSang1T"></td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coombs indireto</td>
+                                        <td><input type="checkbox" name="coombs1T"></td>
+                                        <td><input type="checkbox" name="coombs2T"></td>
+                                        <td><input type="checkbox" name="coombs3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Glicemia jejum</td>
+                                        <td><input type="checkbox" name="glicemia1T"></td>
+                                        <td><input type="checkbox" name="glicemia2T"></td>
+                                        <td><input type="checkbox" name="glicemia3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>VDRL</td>
+                                        <td><input type="checkbox" name="vdrl1T"></td>
+                                        <td><input type="checkbox" name="vdrl2T"></td>
+                                        <td><input type="checkbox" name="vdrl3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anti-HIV</td>
+                                        <td><input type="checkbox" name="hiv1T"></td>
+                                        <td><input type="checkbox" name="hiv2T"></td>
+                                        <td><input type="checkbox" name="hiv3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HBsAg</td>
+                                        <td><input type="checkbox" name="hbsag1T"></td>
+                                        <td>-</td>
+                                        <td><input type="checkbox" name="hbsag3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anti-HCV</td>
+                                        <td><input type="checkbox" name="hcv1T"></td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Toxoplasmose</td>
+                                        <td><input type="checkbox" name="toxo1T"></td>
+                                        <td><input type="checkbox" name="toxo2T"></td>
+                                        <td><input type="checkbox" name="toxo3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>EAS/Urocultura</td>
+                                        <td><input type="checkbox" name="eas1T"></td>
+                                        <td><input type="checkbox" name="eas2T"></td>
+                                        <td><input type="checkbox" name="eas3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ultrassonografia</td>
+                                        <td><input type="checkbox" name="usg1T"></td>
+                                        <td><input type="checkbox" name="usg2T"></td>
+                                        <td><input type="checkbox" name="usg3T"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cultura Streptococcus B</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><input type="checkbox" name="strepto3T"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </form>
 
             <div class="btn-group">
@@ -647,14 +1964,14 @@
 
     <!-- Firebase Configuration and Scripts -->
     <script>
-        // Firebase configuration
+        // Firebase configuration - SUBSTITUA COM SUAS CREDENCIAIS
         const firebaseConfig = {
-            apiKey: "AIzaSyDIhtZlxhp2QpOKT92AAQBnjaBmliyeHgQ",
-            authDomain: "gauerle-go-form.firebaseapp.com",
-            projectId: "gauerle-go-form",
-            storageBucket: "gauerle-go-form.firebasestorage.app",
-            messagingSenderId: "308290848151",
-            appId: "1:308290848151:web:46459ac58ce054a75870d2"
+              apiKey: "AIzaSyDIhtZlxhp2QpOKT92AAQBnjaBmliyeHgQ",
+              authDomain: "gauerle-go-form.firebaseapp.com",
+              projectId: "gauerle-go-form",
+              storageBucket: "gauerle-go-form.firebasestorage.app",
+              messagingSenderId: "308290848151",
+              appId: "1:308290848151:web:46459ac58ce054a75870d2"
         };
 
         // Initialize Firebase
@@ -738,14 +2055,20 @@
                 // Save to Firestore
                 await db.collection('reports').add(reportData);
                 
-                // Clean old reports (keep only last 5)
+                // Clean old reports (keep only last 5) - usando query simples
                 const oldReports = await db.collection('reports')
                     .where('userId', '==', currentUser.uid)
-                    .orderBy('createdAt', 'desc')
                     .get();
                 
-                if (oldReports.docs.length > 5) {
-                    const toDelete = oldReports.docs.slice(5);
+                // Ordenar manualmente no cliente
+                const sortedDocs = oldReports.docs.sort((a, b) => {
+                    const aTime = a.data().createdAt?.toMillis() || 0;
+                    const bTime = b.data().createdAt?.toMillis() || 0;
+                    return bTime - aTime;
+                });
+                
+                if (sortedDocs.length > 5) {
+                    const toDelete = sortedDocs.slice(5);
                     const batch = db.batch();
                     toDelete.forEach(doc => batch.delete(doc.ref));
                     await batch.commit();
@@ -758,6 +2081,9 @@
             }
         }
 
+        // Resto das funções JavaScript (calcularIMC, toggleConsultationType, etc.)
+        // [Mantém todas as funções originais]
+
         // Calcular IMC automaticamente
         function calcularIMC() {
             const peso = parseFloat(document.getElementById('peso').value);
@@ -768,6 +2094,9 @@
                 document.getElementById('imc').value = imc;
             }
         }
+
+        document.getElementById('peso')?.addEventListener('input', calcularIMC);
+        document.getElementById('altura')?.addEventListener('input', calcularIMC);
 
         // Função para alternar entre consulta ginecológica e obstétrica
         function toggleConsultationType() {
@@ -781,6 +2110,30 @@
                     secaoObstetrica.style.display = 'none';
                 }
             }
+        }
+
+        // Calcular idade gestacional e DPP
+        function calcularIdadeGestacional() {
+            const dumInput = document.getElementById('dumObstetrica').value;
+            if (!dumInput) return;
+            
+            const dum = new Date(dumInput);
+            const hoje = new Date();
+            
+            // Calcular idade gestacional em semanas e dias
+            const diffTime = Math.abs(hoje - dum);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const semanas = Math.floor(diffDays / 7);
+            const dias = diffDays % 7;
+            
+            document.getElementById('igCalculada').value = `${semanas} semanas e ${dias} dias`;
+            
+            // Calcular DPP usando regra de Naegele
+            const dpp = new Date(dum);
+            dpp.setDate(dpp.getDate() + 7); // Adicionar 7 dias
+            dpp.setMonth(dpp.getMonth() + 9); // Adicionar 9 meses (ou subtrair 3)
+            
+            document.getElementById('dppCalculada').value = dpp.toLocaleDateString('pt-BR');
         }
 
         // Atualizar recomendações de rastreamento baseado na idade
@@ -797,7 +2150,54 @@
             
             let recomendacoes = `<strong>📋 Recomendações para ${idade} anos:</strong><br><br>`;
             
-            // Add age-based recommendations...
+            // Câncer de colo
+            if (idade >= 25 && idade <= 64) {
+                recomendacoes += '• <strong>Papanicolau:</strong> Realizar (a cada 3 anos após 2 exames anuais normais)<br>';
+            } else if (idade < 25) {
+                recomendacoes += '• <strong>Papanicolau:</strong> Não recomendado de rotina<br>';
+            } else {
+                recomendacoes += '• <strong>Papanicolau:</strong> Pode suspender se últimos exames normais<br>';
+            }
+            
+            // Câncer de mama
+            if (idade >= 40 && idade < 50) {
+                recomendacoes += '• <strong>Mamografia:</strong> Exame clínico anual (MMG se alteração)<br>';
+            } else if (idade >= 50 && idade <= 69) {
+                recomendacoes += '• <strong>Mamografia:</strong> Bienal recomendada<br>';
+            } else if (idade >= 70) {
+                recomendacoes += '• <strong>Mamografia:</strong> Individualizar decisão<br>';
+            } else {
+                recomendacoes += '• <strong>Mamografia:</strong> Apenas se alto risco familiar<br>';
+            }
+            
+            // Densitometria
+            if (idade >= 65) {
+                recomendacoes += '• <strong>Densitometria óssea:</strong> Recomendada<br>';
+            }
+            
+            // Colonoscopia
+            if (idade >= 50) {
+                recomendacoes += '• <strong>Colonoscopia:</strong> Recomendada (a cada 10 anos se normal)<br>';
+            }
+            
+            // Perfil metabólico
+            if (idade >= 45) {
+                recomendacoes += '• <strong>Glicemia e Lipidograma:</strong> Rastreamento recomendado<br>';
+            }
+            
+            // TSH
+            if (idade >= 35) {
+                recomendacoes += '• <strong>TSH:</strong> Considerar rastreamento<br>';
+            }
+            
+            // Específico para gestação
+            const tipoConsulta = document.querySelector('input[name="tipoConsulta"]:checked');
+            if (tipoConsulta && tipoConsulta.value === 'obstetrica') {
+                if (idade < 15 || idade > 35) {
+                    recomendacoes += '<br><strong style="color: #dc3545;">⚠️ Gestação de alto risco devido à idade</strong><br>';
+                }
+            }
+            
             divRastreamento.innerHTML = recomendacoes;
         }
 
@@ -837,7 +2237,22 @@
             relatorio += "IDENTIFICAÇÃO DO PACIENTE\n";
             relatorio += "-".repeat(50) + "\n";
             relatorio += `Nome: ${formData.get('nome') || 'Não informado'}\n`;
-            relatorio += `Idade: ${formData.get('idade') || 'NI'} anos\n\n`;
+            relatorio += `Idade: ${formData.get('idade') || 'NI'} anos`;
+            if (formData.get('dataNascimento')) {
+                relatorio += ` (DN: ${new Date(formData.get('dataNascimento')).toLocaleDateString('pt-BR')})`;
+            }
+            relatorio += "\n";
+            
+            // Se for obstétrico, adicionar informações da gestação
+            if (tipoConsulta === 'obstetrica') {
+                const dum = formData.get('dumObstetrica');
+                if (dum) {
+                    relatorio += `DUM: ${new Date(dum).toLocaleDateString('pt-BR')}\n`;
+                    relatorio += `IG: ${formData.get('igCalculada') || 'NI'}\n`;
+                    relatorio += `DPP: ${formData.get('dppCalculada') || 'NI'}\n`;
+                }
+            }
+            relatorio += "\n";
             
             // SUBJECTIVE
             relatorio += "SUBJECTIVE (S)\n";
@@ -845,152 +2260,181 @@
             
             // Queixa Principal
             relatorio += "Queixa Principal:\n";
-            relatorio += `${getValueOrDefault('queixaPrincipal', 'Consulta ginecológica de rotina')}\n\n`;
+            if (tipoConsulta === 'obstetrica') {
+                relatorio += `Consulta de pré-natal - ${formData.get('igCalculada') || 'IG não calculada'}\n`;
+                const queixa = formData.get('queixaPrincipal');
+                if (queixa && queixa !== 'Consulta ginecológica de rotina') {
+                    relatorio += `Queixas adicionais: ${queixa}\n`;
+                }
+            } else {
+                relatorio += `${getValueOrDefault('queixaPrincipal', 'Consulta ginecológica de rotina')}\n`;
+            }
+            relatorio += "\n";
             
             // HDA
             relatorio += "História da Doença Atual:\n";
             relatorio += `${getValueOrDefault('hda', 'Paciente procura atendimento para consulta de rotina. Nega queixas atuais.')}\n\n`;
             
+            // Se obstétrica, adicionar sintomas gestacionais
+            if (tipoConsulta === 'obstetrica') {
+                const sintomasGestacao = formData.getAll('sintomasGestacao');
+                if (sintomasGestacao.length > 0) {
+                    relatorio += "Sintomas Gestacionais:\n";
+                    sintomasGestacao.forEach(sintoma => {
+                        relatorio += `• ${sintoma.replace(/-/g, ' ')}\n`;
+                    });
+                    relatorio += "\n";
+                }
+                
+                const movFetal = formData.get('movimentacaoFetal');
+                if (movFetal) {
+                    relatorio += `Movimentação fetal: ${movFetal}\n`;
+                    if (formData.get('inicioMovimentacao')) {
+                        relatorio += `Início da percepção: ${formData.get('inicioMovimentacao')} semanas\n`;
+                    }
+                    relatorio += "\n";
+                }
+            }
+            
+            // Revisão de sistemas
+            relatorio += "Revisão de Sistemas:\n";
+            const sintomasGerais = formData.getAll('sintomasGerais');
+            relatorio += `• Geral: ${sintomasGerais.length > 0 ? sintomasGerais.join(', ') : 'Nega edema, febre, perda de peso'}\n`;
+            
+            const sintomasCabeca = formData.getAll('sintomasCabeca');
+            relatorio += `• Cabeça/Pescoço: ${sintomasCabeca.length > 0 ? sintomasCabeca.join(', ') : 'Nega cefaleia, tontura'}\n`;
+            
+            const sintomasCardio = formData.getAll('sintomasCardio');
+            relatorio += `• Cardiovascular: ${sintomasCardio.length > 0 ? sintomasCardio.join(', ') : 'Nega palpitações, dor precordial'}\n`;
+            
+            const sintomasResp = formData.getAll('sintomasResp');
+            relatorio += `• Respiratório: ${sintomasResp.length > 0 ? sintomasResp.join(', ') : 'Nega tosse, dispneia'}\n`;
+            
+            const sintomasGI = formData.getAll('sintomasGI');
+            relatorio += `• Gastrointestinal: ${sintomasGI.length > 0 ? sintomasGI.join(', ') : 'Nega náuseas, vômitos'}\n`;
+            
+            const sintomasGU = formData.getAll('sintomasGU');
+            relatorio += `• Genitourinário: ${sintomasGU.length > 0 ? sintomasGU.join(', ') : 'Nega disúria, incontinência'}\n`;
+            
+            const sintomasMama = formData.getAll('sintomasMama');
+            relatorio += `• Mamas: ${sintomasMama.length > 0 ? sintomasMama.join(', ') : 'Nega dor, nódulos'}\n`;
+            
+            relatorio += "\n";
+            
             // OBJECTIVE
             relatorio += "OBJECTIVE (O)\n";
             relatorio += "=".repeat(50) + "\n\n";
-            relatorio += "[Exame físico a ser documentado]\n\n";
+            
+            // Sinais Vitais
+            relatorio += "Sinais Vitais:\n";
+            if (formData.get('temp')) relatorio += `• T: ${formData.get('temp')}°C\n`;
+            if (formData.get('fc')) relatorio += `• P: ${formData.get('fc')} bpm\n`;
+            if (formData.get('pa')) relatorio += `• BP: ${formData.get('pa')} mmHg\n`;
+            if (formData.get('fr')) relatorio += `• RR: ${formData.get('fr')} irpm\n`;
+            if (formData.get('sato2')) relatorio += `• O2 Sat: ${formData.get('sato2')}%\n`;
+            if (formData.get('peso')) relatorio += `• Peso: ${formData.get('peso')} kg\n`;
+            if (formData.get('altura')) relatorio += `• Altura: ${formData.get('altura')} m\n`;
+            if (formData.get('imc')) relatorio += `• IMC: ${formData.get('imc')} kg/m²\n`;
+            relatorio += "\n";
+            
+            // Exame Físico Geral
+            relatorio += "Exame Físico Geral:\n";
+            relatorio += `• Estado Geral: ${getValueOrDefault('estadoGeral', 'BEG, corada, hidratada, anictérica, acianótica, afebril')}\n`;
+            relatorio += `• Cabeça/Pescoço: ${getValueOrDefault('cabecaPescoco', 'Linfonodos não palpáveis. Tireoide sem alterações')}\n`;
+            relatorio += `• Tórax: ${getValueOrDefault('torax', 'Expansibilidade simétrica. MV+ bilateral sem RA')}\n`;
+            relatorio += `• Coração: ${getValueOrDefault('coracao', 'BRNF em 2T sem sopros')}\n`;
+            relatorio += `• Abdome: ${getValueOrDefault('abdomen', 'Plano, flácido, RHA+, indolor')}\n`;
+            relatorio += `• Extremidades: ${getValueOrDefault('extremidades', 'Sem edemas, pulsos presentes')}\n`;
+            relatorio += "\n";
+            
+            // Se obstétrica, adicionar exame obstétrico
+            if (tipoConsulta === 'obstetrica') {
+                relatorio += "Exame Obstétrico:\n";
+                if (formData.get('alturaUterina')) {
+                    relatorio += `• Altura Uterina: ${formData.get('alturaUterina')} cm\n`;
+                }
+                if (formData.get('circunferenciaAbdominal')) {
+                    relatorio += `• Circunferência Abdominal: ${formData.get('circunferenciaAbdominal')} cm\n`;
+                }
+                if (formData.get('bcfPresente')) {
+                    relatorio += `• BCF: ${formData.get('bcfPresente')}`;
+                    if (formData.get('bcfFrequencia')) {
+                        relatorio += ` - ${formData.get('bcfFrequencia')} bpm`;
+                    }
+                    if (formData.get('bcfLocalizacao')) {
+                        relatorio += ` - Localização: ${formData.get('bcfLocalizacao')}`;
+                    }
+                    relatorio += "\n";
+                }
+                if (formData.get('apresentacaoFetal')) {
+                    relatorio += `• Apresentação: ${formData.get('apresentacaoFetal')}\n`;
+                }
+                if (formData.get('situacaoFetal')) {
+                    relatorio += `• Situação: ${formData.get('situacaoFetal')}\n`;
+                }
+                if (formData.get('posicaoFetal')) {
+                    relatorio += `• Posição: ${formData.get('posicaoFetal')}\n`;
+                }
+                relatorio += "\n";
+            } else {
+                // Exame Ginecológico
+                relatorio += "Exame Ginecológico:\n";
+                relatorio += `• Mamas: ${getValueOrDefault('mamasInspecao', 'Inspeção sem alterações')}\n`;
+                relatorio += `• Genitália Externa: ${getValueOrDefault('vulva', 'Sem lesões ou alterações')}\n`;
+                relatorio += `• Especular: ${getValueOrDefault('especular', 'Colo epitelizado, sem lesões')}\n`;
+                relatorio += `• Toque: ${getValueOrDefault('toqueVaginal', 'Útero AVF, tamanho normal, anexos não palpáveis')}\n`;
+                relatorio += "\n";
+            }
             
             // ASSESSMENT
             relatorio += "ASSESSMENT (A)\n";
             relatorio += "=".repeat(50) + "\n";
-            relatorio += "1. Consulta de rotina\n\n";
+            
+            if (tipoConsulta === 'obstetrica') {
+                // Adicionar diagnósticos obstétricos
+                const ig = formData.get('igCalculada');
+                if (ig) {
+                    relatorio += `1. Gestação única tópica, ${ig}\n`;
+                }
+                
+                // Adicionar classificação de risco
+                const classificacao = formData.get('classificacaoRisco');
+                if (classificacao) {
+                    relatorio += `2. Gestação de ${classificacao}\n`;
+                }
+                
+                const fatoresRisco = formData.getAll('fatoresRisco');
+                if (fatoresRisco.length > 0) {
+                    relatorio += "\nFatores de Risco Identificados:\n";
+                    fatoresRisco.forEach(fator => {
+                        relatorio += `• ${fator.replace(/-/g, ' ')}\n`;
+                    });
+                }
+            } else {
+                // Hipóteses ginecológicas
+                const hipotesesText = getValueOrDefault('hipoteses', '1. Consulta ginecológica de rotina');
+                const hipotesesLines = hipotesesText.split('\n').filter(line => line.trim());
+                hipotesesLines.forEach(linha => {
+                    relatorio += linha.trim() + "\n";
+                });
+            }
+            relatorio += "\n";
             
             // PLAN
             relatorio += "PLAN (P)\n";
             relatorio += "=".repeat(50) + "\n";
-            relatorio += "• Orientações sobre prevenção\n";
-            relatorio += "• Manter acompanhamento anual\n";
-            relatorio += "• Retorno em 1 ano ou se intercorrências\n\n";
             
-            relatorio += "=".repeat(50) + "\n";
-            relatorio += "Médico(a) Responsável: _____________________\n";
-            relatorio += "CRM: _____________________\n";
-            
-            // Store the generated report
-            lastGeneratedReport = relatorio;
-            
-            // Exibir o relatório
-            const outputDiv = document.getElementById('output');
-            outputDiv.textContent = relatorio;
-            outputDiv.style.display = 'block';
-            
-            // Enable cloud save button
-            if (currentUser) {
-                document.getElementById('saveCloudBtn').disabled = false;
-            }
-            
-            // Criar link para download local
-            const blob = new Blob([relatorio], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            const tipoArquivo = tipoConsulta === 'obstetrica' ? 'prenatal' : 'gineco';
-            link.download = `${tipoArquivo}_SOAP_${formData.get('nome')?.replace(/\s+/g, '_') || 'paciente'}_${new Date().toISOString().split('T')[0]}.txt`;
-            link.click();
-            window.URL.revokeObjectURL(url);
-        }
-        
-        function limparFormulario() {
-            if (confirm('Tem certeza que deseja limpar todos os campos?')) {
-                document.getElementById('anamneseForm').reset();
-                document.getElementById('output').style.display = 'none';
-                lastGeneratedReport = null;
-                document.getElementById('saveCloudBtn').disabled = true;
-            }
-        }
-
-        // Auto-save no localStorage
-        function autoSave() {
-            const form = document.getElementById('anamneseForm');
-            const formData = new FormData(form);
-            const data = {};
-            
-            for (let [key, value] of formData.entries()) {
-                if (!data[key]) {
-                    data[key] = value;
-                } else {
-                    if (!Array.isArray(data[key])) {
-                        data[key] = [data[key]];
-                    }
-                    data[key].push(value);
-                }
-            }
-            
-            localStorage.setItem('anamneseData', JSON.stringify(data));
-        }
-
-        // Restaurar dados salvos
-        function restoreData() {
-            const savedData = localStorage.getItem('anamneseData');
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                const form = document.getElementById('anamneseForm');
+            if (tipoConsulta === 'obstetrica') {
+                relatorio += "Plano Pré-natal:\n";
                 
-                for (let key in data) {
-                    const elements = form.elements[key];
-                    if (elements) {
-                        if (elements.length) {
-                            for (let elem of elements) {
-                                if (elem.type === 'checkbox' || elem.type === 'radio') {
-                                    elem.checked = Array.isArray(data[key]) 
-                                        ? data[key].includes(elem.value)
-                                        : data[key] === elem.value;
-                                }
-                            }
-                        } else {
-                            elements.value = data[key];
-                        }
-                    }
+                // Vacinas
+                const vacinas = formData.getAll('vacinasGestacao');
+                if (vacinas.length > 0) {
+                    relatorio += "• Vacinação realizada/orientada:\n";
+                    vacinas.forEach(vacina => {
+                        relatorio += `  - ${vacina.replace(/-/g, ' ')}\n`;
+                    });
                 }
                 
-                // Atualizar rastreamento se idade foi restaurada
-                if (data.idade) {
-                    atualizarRastreamento();
-                }
-                // Atualizar tipo de consulta
-                toggleConsultationType();
-            }
-        }
-
-        // Configurar auto-save
-        document.addEventListener('DOMContentLoaded', () => {
-            restoreData();
-            
-            const form = document.getElementById('anamneseForm');
-            if (form) {
-                form.addEventListener('input', autoSave);
-                form.addEventListener('change', autoSave);
-            }
-        });
-
-        // Atalhos de teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                gerarRelatorioSOAP();
-            }
-            
-            if (e.ctrlKey && e.key === 'l') {
-                e.preventDefault();
-                limparFormulario();
-            }
-            
-            if (e.ctrlKey && e.key === 'n') {
-                e.preventDefault();
-                preencherNormal();
-            }
-            
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                salvarNaNuvem();
-            }
-        });
-    </script>
-</body>
-</html>
+                // Exames solicitados
+                relatorio += "• Exames de rotina pré-natal conforme protoc
